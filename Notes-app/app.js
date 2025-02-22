@@ -21,7 +21,6 @@ yargs(hideBin(process.argv))
       },
     },
     handler: function (argv) {
-      console.log(chalk.blue("Note added"));
       myNotes.addNotes(argv.title, argv.body);
     },
   })
@@ -30,6 +29,20 @@ yargs(hideBin(process.argv))
     describe: "Read notes",
     handler: function () {
       console.log(chalk.hex("#FFA500")(myNotes.getNotes()));
+    },
+  })
+  .command({
+    command: "remove",
+    describe: "Remove a note",
+    handler: function (argv) {
+      myNotes.removeNotes(argv.title);
+    },
+    builder: {
+      title: {
+        describe: "Note title",
+        demandOption: true,
+        type: "string",
+      },
     },
   })
   .parse();
