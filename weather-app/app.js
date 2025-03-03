@@ -14,15 +14,15 @@ address = argv.weather;
 if (!address) {
   return console.log("Please Enter the address");
 }
-geocode(address, (error, data) => {
+geocode(address, (error, { latitude, longitude, location } = {}) => {
   if (error) {
     return console.log(error);
   }
-  forecast(data.latitude, data.longitude, (error, weatherData) => {
+  forecast(latitude, longitude, (error, weatherData) => {
     if (error) {
       return console.log("Connection to weather services failed");
     }
-    console.log(data.location);
+    console.log(location);
     console.log(weatherData.temperature);
   });
 });
