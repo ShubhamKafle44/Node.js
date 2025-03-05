@@ -2,13 +2,26 @@
 <html>
     <head>  
         <link rel = "stylesheet", href = "/css/style.css">
-        <script src = "/js/app.js"></script>
+
+        <title>Weather</title>
     </head>
         <body>
+            <div class="main-content">
             {{>header}}
-            <img src="/weather_img/weather.jpg"/>
+            <img class = "weather" src="/weather_img/weather.jpg"/>
             {{body}}
+
+            <p>Use the form below to get the weather data</p>
+            <form>
+                <input placeholder="Enter the name of the place">
+                <button>Search</button>
+            </form>
+            <p id="message_item1"></p>
+            <p id="message_item2"></p>
+        </div>
+                {{>footer}}
+                    <script src = "/js/app.js"></script>
         </body>
-        {{>footer}}
+
 
 </html>
